@@ -1,43 +1,7 @@
-# Dot 每日科技资讯同步
+# 新闻同步已迁移
 
-本站只同步用户指定的「AI 热门 20 · 每日精选」中的资讯摘要。源站保持原来的私人访问权限，博客继续公开托管在 GitHub Pages。
+当前发布仓库为 `Be1Human/Be1Human.github.io`，公开页面为 https://be1human.github.io/news.html。
 
-- 来源：`https://ai-hot20-daily.next-ace-help.chatgpt.site`
-- Sites 项目：`appgprj_6acdd345a22c819182154b950d3994f3`
-- 数据目录：已发布源代码中的 `dist/data/editions.json` 与每期 JSON。
-- 目的地：`Be1Human/portfolio`，`main` 分支，根目录发布。
+请读取 `/Users/guotengtao/Documents/cloudboy/blog/docs/news-sync.md`，并在 `/Users/guotengtao/Documents/cloudboy/blog` 中执行同步。已核验回执位于新目录的 `.qa/news-sync-receipt.json`。
 
-## 每次自动同步
-
-自动任务每 15 分钟检查一次源站已发布版本。以提交版本及完整内容为依据，不以日期是否相同来跳过：新增一期、同日多次更新、历史资讯更正都会更新到博客。关闭电脑期间暂停检查，恢复运行后补齐全部新增和修订。同步有检查间隔与 GitHub Pages 发布耗时，不承诺秒级更新。
-
-1. 使用 Sites 连接读取源站和版本记录。确认选中的版本已成功部署，并记下其 `source.commit_sha`；不发布尚未部署的草稿版本。
-   可与本机 `.qa/news-sync-receipt.json` 中**已确认成功发布**的源提交比较，无变化且没有待完成发布时直接结束。回执不包含凭据，保持在 Git 忽略目录内。没有回执时执行完整核对；不得仅凭最新日期相同跳过。
-2. 为该源站取得新的临时源代码访问凭据。按 Sites 技能的 source helper 流程打开独立的源代码目录。凭据仅存在于本次进程内，通过隐藏 stdin 传入，不写文件、不写 Git remote、不输出到日志。
-3. 确认源代码工作区干净。必要时以非强制 `git checkout --detach` 切到步骤 1 的已部署提交；不要在源站工作区改动文件或推送。读取数据前核对提交一致。
-4. 在干净的博客 `main` 工作区运行：
-
-   ```sh
-   npm run news:publish -- /absolute/path/to/source-checkout
-   ```
-
-   脚本会快进到远程最新版、导入资讯、构建静态页面、运行校验，并仅提交资讯数据和对应生成文件。重复运行没有变化时不写文件、不提交。源站缺失历史、字段不合法、出现本地修改或远程冲突时停止并保留文件，不强推、不重置用户改动。
-
-5. 推送成功后，用 GitHub Pages 的构建状态确认对应提交完成发布，并读取公开新闻页核对最新日期。失败时保留已导入数据、报告具体错误，不把旧版本当作成功。
-   同期更正还要核对受影响日期的内容。确认发布成功后，在本机 `.qa/news-sync-receipt.json` 记录 `sourceRevision`、`blogCommit` 和 `verifiedAt`。中途失败时不得提前更新回执；下一轮先检查上次发布是否已完成，再处理后续版本。
-
-## 公开字段边界
-
-白名单包含标题、摘要、分类、原作者、原帖链接、来源链接、原帖发布时间、采集时间和原帖预览图片 URL。其他字段一律丢弃。尤其不导入 `comment`、引用转发草稿、内部核对笔记、账号数据或访问令牌。不复制完整视频；视频入口回到原帖。
-
-站点构建不需要源站凭据。`data/news.json` 是公开数据，前台不请求私人站点接口，访客不需要登录 Dot。
-
-## 单次导入与检查
-
-```sh
-npm run news:sync -- /absolute/path/to/source-checkout
-npm run build
-npm run check
-```
-
-自动运行由桌面聊天的持续检查任务触发；运行时电脑需要联网且桌面应用保持运行。源站自己的每日搜集安排独立存在，本流程不创建、修改或重复执行源站的搜集任务。
+本仓库仅保留历史，GitHub Pages 必须保持关闭；不要继续运行旧目录中的新闻发布命令，也不要在此写入回执。根站维护 `/portfolio/` 旧链接跳转与旧 RSS 兼容内容。

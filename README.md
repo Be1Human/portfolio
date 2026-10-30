@@ -1,5 +1,7 @@
 # CLOUD BOY · 云上男孩
 
+> 博客已迁移到 [be1human.github.io](https://be1human.github.io/)，当前源码与发布仓库为 [Be1Human/Be1Human.github.io](https://github.com/Be1Human/Be1Human.github.io)。本仓库保留迁移前历史，GitHub Pages 已关闭。旧 `/portfolio/` 页面由根站兼容目录跳转，新闻只在新仓库同步。
+
 [个人博客](https://be1human.github.io/portfolio/) · [作品集](https://be1human.github.io/portfolio/works.html) · [博客时间线](https://be1human.github.io/portfolio/journal.html) · [科技新闻](https://be1human.github.io/portfolio/news.html)
 
 一个零依赖的中文个人博客：作品展示、创作记录，以及从 Dot「AI 热门 20 · 每日精选」同步的日期归档。全站统一暖色纸感：米白底、柔和墨色与书页式排版，适配手机；全部主要内容在 HTML 中，关闭 JavaScript 也能阅读。
